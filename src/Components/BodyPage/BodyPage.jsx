@@ -49,7 +49,7 @@ function BodyPage() {
 
     setWatched(newWatchedList);
   };
-
+  /*add watching movie */
  const addWatchingMovie = (filme) => {
   const newWatchingMovie = [...watching, filme];
   setWatching(newWatchingMovie);
@@ -141,7 +141,7 @@ function BodyPage() {
                   <Card
                     key={assistindo.id}
                     film={assistindo}
-                    handleWatched={removeWatchedMovie}
+                    handleWatched={removeWatchingMovie}
                   />
                 )
             )}
