@@ -21,7 +21,7 @@ function BodyPage() {
     setMovies(data.results);
   }, []);
 
-  /*add watched movie to localStorage*/
+  /*add watched movie to localstorage*/
   useEffect(() => {
     const movieWatched = JSON.parse(
       localStorage.getItem("react-movie-app-watched")
@@ -37,14 +37,7 @@ function BodyPage() {
     setWatching(movieWatching);
   }, []);
 
-  /*add want to watch movie to lolcalStorage*/
-  useEffect(() => {
-    const movieWantToWatch= JSON.parse(
-      localStorage.getItem("react-movie-app-wantToWatch")
-    );
-    setWantToWatch(movieWantToWatch);
-  }, []);
-
+  
   const onSubmit = async () => {
     const { data } = await api.get(
       `search/movie?api_key=549851ad4bb5922c5c7448f015735383&language=pt-BR&query=${values}&page=1&include_adult=false`
@@ -52,24 +45,16 @@ function BodyPage() {
     setMovies(data.results);
   };
 
-  /*save watched to localStorage*/
-  const saveWatchedToLocalStorage = (items) => {
+  const saveToLocalStorage = (items) => {
     localStorage.setItem("react-movie-app-watched", JSON.stringify(items));
   };
-  /*save watching to localStorage*/
-  const saveWatchingToLocalStorage = (items) => {
-    localStorage.setItem("react-movie-app-watching", JSON.stringify(items));
-  };
 
-  /*save want to watch to localStorage*/
-  const saveWantToWatchToLocalStorage = (items) => {
-    localStorage.setItem("react-movie-app-wantToWatch", JSON.stringify(items));
-  };
+
   /*add watched movie */
   const addWatchedMovie = (filme) => {
     const newWatchedList = [...watched, filme];
     setWatched(newWatchedList);
-    saveWatchedToLocalStorage(newWatchedList);
+    saveToLocalStorage(newWatchedList);
   };
   /*remove watched movie*/
   const removeWatchedMovie = (filme) => {
@@ -79,9 +64,8 @@ function BodyPage() {
   };
   /*add watching movie */
  const addWatchingMovie = (filme) => {
-  const newWatchingList = [...watching, filme];
-  setWatching(newWatchingList);
-  saveWatchingToLocalStorage(newWatchingList);
+  const newWatchingMovie = [...watching, filme];
+  setWatching(newWatchingMovie);
  } 
  /*remove watching movie*/
  const removeWatchingMovie = (filme) => {
@@ -93,9 +77,8 @@ function BodyPage() {
 
 /*add want to watch movie */
  const addWantToWatchMovie = (filme) => {
-   const newWantToWatchList = [...wantToWatch, filme];
-   setWantToWatch(newWantToWatchList);
-   saveWantToWatchToLocalStorage(newWantToWatchList);
+   const newWantToWatch = [...wantToWatch, filme];
+   setWantToWatch(newWantToWatch);
  }
 
  /*remove want to watch movie*/
@@ -147,7 +130,7 @@ function BodyPage() {
         )}
       </Carrousel>
 
-      {Boolean(watched.length) && (
+      {watched && Boolean(watched.length) && (
         <>
           <h2>Assistidos</h2>
           <Carrousel
@@ -170,7 +153,7 @@ function BodyPage() {
         </>
       )}
 
-{Boolean(watching.length) && (
+{watching && Boolean(watching.length) && (
         <>
           <h2>Assistindo</h2>
           <Carrousel
@@ -185,7 +168,7 @@ function BodyPage() {
                   <Card
                     key={assistindo.id}
                     film={assistindo}
-                    handleWatched={removeWatchingMovie}
+                    handleWatching={removeWatchingMovie}
                   />
                 )
             )}
@@ -193,9 +176,9 @@ function BodyPage() {
         </>
       )}
 
-{Boolean(wantToWatch.length) && (
+{wantToWatch && Boolean(wantToWatch.length) && (
         <>
-          <h2>Assistindo</h2>
+          <h2>Querendo assistir</h2>
           <Carrousel
             breakPoints={breakPoints}
             pagination={false}
@@ -209,7 +192,7 @@ function BodyPage() {
                   <Card
                     key={querAssistir.id}
                     film={querAssistir}
-                    handleWatched={removeWantToWatch}
+                    handleWantToWatch={removeWantToWatch}
                   />
                 )
             )}
