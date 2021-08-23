@@ -21,11 +21,28 @@ function BodyPage() {
     setMovies(data.results);
   }, []);
 
+  /*add watched movie to localStorage*/
   useEffect(() => {
     const movieWatched = JSON.parse(
       localStorage.getItem("react-movie-app-watched")
     );
     setWatched(movieWatched);
+  }, []);
+
+  /*add watching movie to localStorage*/
+  useEffect(() => {
+    const movieWatching = JSON.parse(
+      localStorage.getItem("react-movie-app-watching")
+    );
+    setWatching(movieWatching);
+  }, []);
+
+  /*add want to watch movie to lolcalStorage*/
+  useEffect(() => {
+    const movieWantToWatch= JSON.parse(
+      localStorage.getItem("react-movie-app-wantToWatch")
+    );
+    setWantToWatch(movieWantToWatch);
   }, []);
 
   const onSubmit = async () => {
@@ -35,14 +52,24 @@ function BodyPage() {
     setMovies(data.results);
   };
 
-  const saveToLocalStorage = (items) => {
+  /*save watched to localStorage*/
+  const saveWatchedToLocalStorage = (items) => {
     localStorage.setItem("react-movie-app-watched", JSON.stringify(items));
+  };
+  /*save watching to localStorage*/
+  const saveWatchingToLocalStorage = (items) => {
+    localStorage.setItem("react-movie-app-watching", JSON.stringify(items));
+  };
+
+  /*save want to watch to localStorage*/
+  const saveWantToWatchToLocalStorage = (items) => {
+    localStorage.setItem("react-movie-app-wantToWatch", JSON.stringify(items));
   };
   /*add watched movie */
   const addWatchedMovie = (filme) => {
     const newWatchedList = [...watched, filme];
     setWatched(newWatchedList);
-    saveToLocalStorage(newWatchedList);
+    saveWatchedToLocalStorage(newWatchedList);
   };
   /*remove watched movie*/
   const removeWatchedMovie = (filme) => {
@@ -54,6 +81,7 @@ function BodyPage() {
  const addWatchingMovie = (filme) => {
   const newWatchingMovie = [...watching, filme];
   setWatching(newWatchingMovie);
+  saveWatchingToLocalStorage(newWatchingList);
  } 
  /*remove watching movie*/
  const removeWatchingMovie = (filme) => {
@@ -67,6 +95,7 @@ function BodyPage() {
  const addWantToWatchMovie = (filme) => {
    const newWantToWatch = [...wantToWatch, filme];
    setWantToWatch(newWantToWatch);
+   saveWantToWatchToLocalStorage(newWantToWatchList);
  }
 
  /*remove want to watch movie*/
