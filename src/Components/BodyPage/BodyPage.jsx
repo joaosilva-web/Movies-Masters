@@ -79,8 +79,8 @@ function BodyPage() {
   };
   /*add watching movie */
  const addWatchingMovie = (filme) => {
-  const newWatchingMovie = [...watching, filme];
-  setWatching(newWatchingMovie);
+  const newWatchingList = [...watching, filme];
+  setWatching(newWatchingList);
   saveWatchingToLocalStorage(newWatchingList);
  } 
  /*remove watching movie*/
@@ -93,8 +93,8 @@ function BodyPage() {
 
 /*add want to watch movie */
  const addWantToWatchMovie = (filme) => {
-   const newWantToWatch = [...wantToWatch, filme];
-   setWantToWatch(newWantToWatch);
+   const newWantToWatchList = [...wantToWatch, filme];
+   setWantToWatch(newWantToWatchList);
    saveWantToWatchToLocalStorage(newWantToWatchList);
  }
 
