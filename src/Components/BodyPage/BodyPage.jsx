@@ -12,6 +12,7 @@ function BodyPage() {
   const [movies, setMovies] = useState([{}]);
   const [watched, setWatched] = useState([]);
   const [watching, setWatching] = useState([]);
+  const [wantToWatch, setWantToWatch] = useState([])
 
   useEffect(async () => {
     const { data } = await api.get(
@@ -54,13 +55,26 @@ function BodyPage() {
   const newWatchingMovie = [...watching, filme];
   setWatching(newWatchingMovie);
  } 
-
+ /*remove watching movie*/
  const removeWatchingMovie = (filme) => {
    const newWatchingList = watching.filter((watched) => watched.id !== filme.id);
 
    setWatching(newWatchingList);
  }
  /*console.log(watching);*/
+
+/*add want to watch movie */
+ const addWantToWatchMovie = (filme) => {
+   const newWantToWatch = [...wantToWatch, filme];
+   setWantToWatch(newWantToWatch);
+ }
+
+ /*remove want to watch movie*/
+ const removeWantToWatch = (filme) => {
+   const newWantToWatchList = wantToWatch.filter((watched) => watched.id !== filme.id);
+
+   setWantToWatch(newWantToWatchList);
+ }
 
   /* carrousel config*/
   const breakPoints = [
@@ -98,6 +112,7 @@ function BodyPage() {
                 film={filme}
                 handleWatched={addWatchedMovie}
                 handleWatching={addWatchingMovie}
+                handleWantToWatch={addWantToWatchMovie}
               />
             )
         )}
@@ -142,6 +157,30 @@ function BodyPage() {
                     key={assistindo.id}
                     film={assistindo}
                     handleWatched={removeWatchingMovie}
+                  />
+                )
+            )}
+          </Carrousel>
+        </>
+      )}
+
+{Boolean(wantToWatch.length) && (
+        <>
+          <h2>Assistindo</h2>
+          <Carrousel
+            breakPoints={breakPoints}
+            pagination={false}
+            disableArrowsOnEnd={false}
+            itemPosition={consts.CENTER}
+          >
+            {wantToWatch
+            .map(
+              (querAssistir) =>
+                querAssistir.poster_path && (
+                  <Card
+                    key={querAssistir.id}
+                    film={querAssistir}
+                    handleWatched={removeWantToWatch}
                   />
                 )
             )}

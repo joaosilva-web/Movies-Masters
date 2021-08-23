@@ -20,7 +20,7 @@ function Card(props) {
               <button onClick={() => props.handleWatching(props.film)}>
               <FontAwesomeIcon icon={faClock} />
               </button>
-              <button>
+              <button onClick={() => props.handleWantToWatch(props.film)}>
               <FontAwesomeIcon icon={faHistory} />
               </button>
           </S.FormButtons>
