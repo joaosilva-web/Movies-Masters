@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 export const BodyPage = styled.div`
-    height: calc(100vh - 75px - 4rem);
-    margin-top: 2rem;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 `
 
 export const InputBox = styled.div`
@@ -38,6 +40,7 @@ export const InputBox = styled.div`
         @media screen and (max-width:768px) {
             width: 80%;
         }
+
 `
 
 export const CardBox = styled.div`

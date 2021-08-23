@@ -9,7 +9,6 @@ export const Card = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     
-
     height: 30rem;
     overflow: hidden;
     width:  20rem;
@@ -19,6 +18,11 @@ export const Card = styled.div`
     &:hover {
         transform: scale(1.1);
     }
+
+    @media screen and (max-width: 768px) {
+        height: 25rem;
+        width: 15rem;
+    }
     
 `
 
@@ -26,6 +30,7 @@ export const CardOverLay = styled.div`
     position: absolute;
     top: -30px;
 
+    
     display: flex;
     flex-direction: column;
     justify-content: space-between;

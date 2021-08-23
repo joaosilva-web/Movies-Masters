@@ -5,6 +5,7 @@ export const Header = styled.header`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 10px;
 
   button {
     background-color: transparent;
@@ -33,6 +34,7 @@ export const Menu = styled.ul`
   list-style: none;
   justify-content: space-between;
   overflow: hidden;
+  width: 40%;
 
   @media screen and (max-width: 768px) {
     background-color: #000109;

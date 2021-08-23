@@ -3,20 +3,21 @@ import * as S from "./styles"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle, faClock, faHistory, } from "@fortawesome/free-solid-svg-icons";
 
-function Card(film) {
-    
 
+function Card(props) {
+  
+  
   return (
-    <S.Card image={film.poster_path}>
+    <S.Card image={props.film.poster_path}>
         <S.CardOverLay>
           <S.Title>
-            <h2>{film.title}</h2>
+            <h2>{props.film.title}</h2>
           </S.Title>
           <S.FormButtons>
-              <button>
+              <button onClick={() => props.handleWatched(props.film)}>
               <FontAwesomeIcon icon={faCheckCircle} />
               </button>
-              <button>
+              <button onClick={() => props.handleWatching(props.film)}>
               <FontAwesomeIcon icon={faClock} />
               </button>
               <button>
