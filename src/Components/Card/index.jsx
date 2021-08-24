@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as S from "./styles"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle, faClock, faHistory, } from "@fortawesome/free-solid-svg-icons";
 
 
 function Card(props) {
-  
+
+
+console.log(props.watched)
+console.log(props.watching)
+console.log(props.wantToWatch)
   
   return (
     <S.Card image={props.film.poster_path}>
@@ -14,15 +18,15 @@ function Card(props) {
             <h2>{props.film.title}</h2>
           </S.Title>
           <S.FormButtons>
-              <button color={props.color} onClick={() => props.handleWatched(props.film)}>
+              <S.Button selected={props.isWatched} color={props.color} onClick={() => props.handleWatched(props.film)}>
               <FontAwesomeIcon icon={faCheckCircle} />
-              </button>
-              <button onClick={() => props.handleWatching(props.film)}>
+              </S.Button>
+              <S.Button selected={props.isWatching} onClick={() => props.handleWatching(props.film)}>
               <FontAwesomeIcon icon={faClock} />
-              </button>
-              <button onClick={() => props.handleWantToWatch(props.film)}>
+              </S.Button>
+              <S.Button selected={props.isWantToWatch} onClick={() => props.handleWantToWatch(props.film)}>
               <FontAwesomeIcon icon={faHistory} />
-              </button>
+              </S.Button>
           </S.FormButtons>
         </S.CardOverLay>
     </S.Card>

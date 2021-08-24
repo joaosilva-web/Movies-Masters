@@ -60,20 +60,6 @@ export const Title = styled.div`
  export const FormButtons = styled.div`
     display: flex;
     justify-content: space-evenly;
-    button {
-        background-color: transparent;
-        border: 0;
-        color: #fff;
-
-        font-size: 1.5rem;
-
-        &:hover {
-            cursor: pointer;
-            color: #128AB4;
-            animation-name: pulse;
-            animation-duration: .75s;
-            animation-fill-mode: both;
-        }
 
         @keyframes pulse {
             0% {
@@ -86,5 +72,22 @@ export const Title = styled.div`
                 transform: scale3d(1, 1, 1);
             }
         }
-    }
 `;
+
+export const Button = styled.button`
+            
+        background-color: transparent;
+        border: 0;
+        color: ${({selected}) => selected ? "#128AB4" : "#fff"};
+
+        font-size: 1.5rem;
+
+        &:hover {
+            cursor: pointer;
+            color: #128AB4;
+            animation-name: pulse;
+            animation-duration: .75s;
+            animation-fill-mode: both;
+        }
+
+`

@@ -14,6 +14,10 @@ function BodyPage() {
   const [watching, setWatching] = useState([]);
   const [wantToWatch, setWantToWatch] = useState([]);
   
+    const [isWatching, setIsWatching] = useState(false)
+    const [isWatched, setIsWatched] = useState(false)
+    const [isWantToWatch, setIsWantToWatch] = useState(false)
+  
   useEffect(async () => {
     const { data } = await api.get(
       `movie/popular?api_key=549851ad4bb5922c5c7448f015735383&language=pt-BR&page=1`
@@ -92,6 +96,7 @@ function BodyPage() {
   const newWatched = [...watched, filme]
   setWatched(newWatched);
   saveWatchedToLocalStorage(newWatched);
+  setIsWatched(true);
 }
 
 /*remove watched movie*/
@@ -100,6 +105,7 @@ const removeWatched = (filme) => {
 
   setWatched(newWatchedList);
   saveWatchedToLocalStorage(newWatchedList);
+  
 }
 
 /*add watching movie */
@@ -107,6 +113,7 @@ const addWatchingMovie = (filme) => {
   const newWatching = [...watching, filme];
   setWatching(newWatching);
   saveWatchingToLocalStorage(newWatching);
+  setIsWatching(true);
 }
 
 /*remove  watching movie*/
@@ -123,6 +130,7 @@ const removeWatching = (filme) => {
    const newWantToWatch = [...wantToWatch, filme];
    setWantToWatch(newWantToWatch);
    saveWantToWatchToLocalStorage(newWantToWatch);
+   setIsWantToWatch(true)
  }
 
  /*remove want to watch movie*/
@@ -141,6 +149,9 @@ const removeWatching = (filme) => {
     { width: 1200, itemsToShow: 3, itemsToScroll: 3 },
     { width: 1500, itemsToShow: 5, itemsToScroll: 5 },
   ];
+
+
+  
 
   return (
     <S.BodyPage>
@@ -191,6 +202,7 @@ const removeWatching = (filme) => {
                     key={assistido.id}
                     film={assistido}
                     handleWatched={removeWatched}
+                    isWatched={isWatched}
                   />
                 )
             )}
@@ -214,6 +226,8 @@ const removeWatching = (filme) => {
                     key={assistindo.id}
                     film={assistindo}
                     handleWatching={removeWatching}
+                    isWatching={isWatching}
+
                   />
                 )
             )}
@@ -229,6 +243,7 @@ const removeWatching = (filme) => {
             pagination={false}
             disableArrowsOnEnd={false}
             itemPosition={consts.CENTER}
+
           >
             {wantToWatch
             .map(
@@ -238,6 +253,7 @@ const removeWatching = (filme) => {
                     key={querAssistir.id}
                     film={querAssistir}
                     handleWantToWatch={removeWantToWatch}
+                    isWantToWatch={isWantToWatch}
                   />
                 )
             )}
