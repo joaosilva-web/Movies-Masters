@@ -25,7 +25,7 @@ export const Header = styled.header`
 export const Logo = styled.div`
   @media screen and (max-width: 768px) {
     padding-left: 3rem;
-  width: 80%;
+    width: 80%;
   }
 `;
 
@@ -48,12 +48,12 @@ export const Menu = styled.ul`
     width: 100%;
     z-index: 999;
 
-  li {
-    @media screen and (max-width: 768px) {
-      font-size: 1.5rem;
-      text-align: center;
-      margin: 10px 0;
+    li {
+      @media screen and (max-width: 768px) {
+        font-size: 1.5rem;
+        text-align: center;
+        margin: 10px 0;
+      }
     }
-  }
   }
 `;

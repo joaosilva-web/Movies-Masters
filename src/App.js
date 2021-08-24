@@ -1,6 +1,6 @@
 import * as S from "./styles";
-import  Header  from "./Components/Header/Header";
-import  BodyPage  from "./Components/BodyPage/BodyPage";
+import  Header  from "./Components/Header/";
+import  BodyPage  from "./Components/BodyPage/";
 
 
 function App() {
