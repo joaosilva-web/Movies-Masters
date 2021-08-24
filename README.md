@@ -1,4 +1,4 @@
 # Projeto de seleção para App Masters
-URL App Masters: [App Masters](https://appmasters.io/pt/)
-URL Projeto: https://movies-masters.vercel.app/
+Link para App Masters: [App Masters](https://appmasters.io/pt/)
+Link para o projeto Projeto: [Movies Masters](https://movies-masters.vercel.app/)
 
