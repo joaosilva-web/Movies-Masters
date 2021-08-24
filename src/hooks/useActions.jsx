@@ -1,4 +1,4 @@
-import { useState } from 'react'
+/*import { useState } from 'react'
 
 const useActions = (movieData)  => {
 
@@ -50,4 +50,4 @@ const useActions = (movieData)  => {
     return [{filmActions}, handleClick];
 }
 
-export {useActions}
+export {useActions}*/

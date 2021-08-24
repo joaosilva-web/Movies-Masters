@@ -14,7 +14,7 @@ function Card(props) {
             <h2>{props.film.title}</h2>
           </S.Title>
           <S.FormButtons>
-              <button onClick={() => props.handleWatched(props.film)}>
+              <button color={props.color} onClick={() => props.handleWatched(props.film)}>
               <FontAwesomeIcon icon={faCheckCircle} />
               </button>
               <button onClick={() => props.handleWatching(props.film)}>

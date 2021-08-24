@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import * as S from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import{ActionsModal} from '../ActionsModal/index'
+
 
 import logo from "../../Images/logo.svg";
 
-function Header() {
+function Header({mapAction, handleRemove}) {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const [modalOpen, setModalOpen] = useState(false);
 
+  
 
     return(
         <S.Header>
@@ -21,7 +25,7 @@ function Header() {
         </button>
         <S.Menu isOpen={isOpen}>
             <li className="nav-list-item">
-              <a>Início</a>
+              <a onClick={() => setModalOpen(!modalOpen)}>Início</a>
             </li>
             <li className="nav-list-item">
               <a>Visto</a>
@@ -33,7 +37,6 @@ function Header() {
               <a>Quero Ver</a>
             </li>
         </S.Menu>
-        
       </S.Header>
 
 

@@ -9,9 +9,8 @@ export const Card = styled.div`
     background-repeat: no-repeat;
     background-position: center;
     
-    height: 30rem;
-    overflow: hidden;
-    width:  20rem;
+    height: 25rem;
+    width: 15rem;
 
     transition: all .5s ease;
 
@@ -30,7 +29,6 @@ export const CardOverLay = styled.div`
     position: absolute;
     top: -30px;
 
-    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -53,16 +51,15 @@ export const CardOverLay = styled.div`
 
 export const Title = styled.div`
    
-   h2{
+   
     text-align: center;
     margin: 0 2%;
-   }
+   
 `
 
  export const FormButtons = styled.div`
     display: flex;
     justify-content: space-evenly;
-
     button {
         background-color: transparent;
         border: 0;
