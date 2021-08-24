@@ -15,23 +15,7 @@ function Header({ mapAction, handleRemove }) {
       <S.Logo>
         <img src={logo}></img>
       </S.Logo>
-      <button onClick={() => setIsOpen(!isOpen)}>
-        <FontAwesomeIcon icon={faBars} />
-      </button>
-      <S.Menu isOpen={isOpen}>
-        <li className="nav-list-item">
-          <a onClick={() => setModalOpen(!modalOpen)}>Início</a>
-        </li>
-        <li className="nav-list-item">
-          <a>Visto</a>
-        </li>
-        <li className="nav-list-item">
-          <a>Assistindo</a>
-        </li>
-        <li className="nav-list-item">
-          <a>Quero Ver</a>
-        </li>
-      </S.Menu>
+      
     </S.Header>
   );
 }
